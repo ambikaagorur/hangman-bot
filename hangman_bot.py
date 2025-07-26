@@ -1,8 +1,13 @@
 from together import Together
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+API_KEY = os.getenv("API_KEY")
 
 class HangmanBot:
     def __init__(self):
-        self.client = Together(api_key="bf010e5f54e95a54bedf571c3658232548fafc1ecadca3e622913f6539a5bdc7")
+        self.client = Together(api_key=API_KEY)
 
     def predict_letter(self, word_state, guessed_letters, word_length):
         while True:
